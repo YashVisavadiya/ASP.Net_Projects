@@ -13,6 +13,12 @@ namespace AddressBook_Replica.Controllers
 
         #endregion
 
+        #region DAL_Object
+
+        DAL dal = new DAL();
+
+        #endregion
+
         #region CONSTRUCTOR
 
         public ContactController(IConfiguration configuration)
@@ -59,7 +65,7 @@ namespace AddressBook_Replica.Controllers
         public IActionResult Add(int? ContactID)
         {
             string connectionString = this.Configuration.GetConnectionString("AddressBook Replica");
-            DAL dal = new DAL();
+            //DAL dal = new DAL();
 
             ViewBag.CountryList = dal.Country_DropDown(connectionString);
 
