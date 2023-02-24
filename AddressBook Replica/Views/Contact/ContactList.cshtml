@@ -1,0 +1,149 @@
+﻿@{
+    ViewData["Title"] = "ContactList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Data
+@model DataTable
+
+<div class="container">
+    <h2>@TempData["Contact_Delete_Msg"]</h2>
+    <h2>@TempData["Contact_Update_Msg"]</h2>
+</div>
+
+<hr />
+<div class="container-fluid">
+
+    <div class="container">
+        <h2>Search Box</h2>
+        <form method="post" asp-controller="Contact">
+            <div class="row">
+                <div class="col-4">
+                    <label>Country</label>
+                    <input type="text" class="form-control" name="CountryName" placeholder="Enter Country Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>State</label>
+                    <input type="text" class="form-control" name="StateName" placeholder="Enter State Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>City</label>
+                    <input type="text" class="form-control" name="CityName" placeholder="Enter City Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>Category</label>
+                    <input type="text" class="form-control" name="ContactCategory" placeholder="Enter Category Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="Name" placeholder="Enter Name Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="Email" placeholder="Enter Email ID Here." />
+                </div>
+
+                <div class="col-4">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" name="Mobile" placeholder="Enter Mobile No. Here." />
+                </div>
+
+                <div class="col-4" style="margin-top:31px">
+                    <button type="submit" class="btn btn-outline-info" asp-action="Search">Search</button>
+                </div>
+
+                <div class="col-4" style="margin-top:31px">
+                    <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <hr />
+
+    <div class="container">
+        <h1>Contact</h1>
+        <form method="post" asp-controller="Contact">
+            <button type="submit" class="btn btn-outline-info" asp-action="Add">Add Contact</button>
+        </form>
+        <div class="input-group" style="margin-top:11px">
+            <input type="text" class="form-control" id="sample_1" placeholder="Search here...">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<div class="container-fluid">
+    <table class="table table-striped table-responsive" id="sample_1">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>State</th>
+                <th>City</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Mobile No.</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Creation Date</th>
+                <th>Modification Date</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+
+        <tbody id="sample_2">
+            @foreach (DataRow dr in Model.Rows)
+            {
+                <tr>
+                    <td>@dr["CountryName"]</td>
+                    <td>@dr["StateName"]</td>
+                    <td>@dr["CityName"]</td>
+                    <td>@dr["ContactCategory"]</td>
+                    <td>@dr["Name"]</td>
+                    <td>@dr["Mobile"]</td>
+                    <td>@dr["Email"]</td>
+                    <td>@dr["Address"]</td>
+                    <td>@dr["CreationDate"]</td>
+                    <td>@dr["ModificationDate"]</td>
+                    <td>
+                        <form method="post" asp-controller="Contact">
+                            <input type="hidden" name="ContactID" value="@Convert.ToInt32(dr["ContactID"])" />
+                            <button type="submit" class="btn btn-outline-primary" asp-action="Add">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form>
+                            <input type="hidden" name="ContactID" value="@Convert.ToInt32(dr["ContactID"])" />
+                            <button type="submit" class="btn btn-outline-danger" asp-action="Delete">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#sample_1").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#sample_2 tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+}

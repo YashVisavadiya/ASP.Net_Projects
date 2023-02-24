@@ -1,0 +1,85 @@
+﻿@{
+    ViewData["Title"] = "CityAddEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model CityModel
+
+<h2>@TempData["City_Insert_Msg"]</h2>
+
+<div class="container">
+    <form method="post" class="form" asp-controller="City">
+
+        @Html.HiddenFor(x => x.CityID)
+
+        <div class="form-group">
+            <label class="form-label">CountryName</label>
+            <select class="form-control" id="CountryID" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))" onchange="funOnCountryChange();">
+                <option value="">Select Country</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">StateName</label>
+            <select class="form-control" id="StateID" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList,"StateID","StateName"))">
+                <option value="">Select State</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">CityName</label>
+            <input type="text" class="form-control" asp-for="CityName" placeholder="Enter City Name Here." />
+        </div>
+
+        @Html.HiddenFor(x => x.CreationDate)
+        @Html.HiddenFor(x => x.ModificationDate)
+
+        <div class="row">
+            <div class="col-1">
+                <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
+            </div>
+            <div class="col-1">
+                <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    function funOnCountryChange() {
+        var CountryID = $("#CountryID").val();
+
+        if (CountryID !== "") {
+            $("#StateID").empty();
+            $("#StateID").append($("<option></option>").val("").html("Select State"));
+            $.ajax(
+                {
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    url: "@Url.Action("State_DropDownByCountry","City")" + "?&CountryID=" + CountryID,
+                    data: {},
+                    dataType: "json",
+                    success: function (Result) {
+                        $.each(Result, function (key, value) {
+                            $("#StateID").append($("<option></option>").val(value.stateID).html(value.stateName));
+                        });
+                    },
+                    error: function (err) {
+                        console.log("Error : ",err);
+                    }
+                }
+            )
+        }
+        else {
+            $("#StateID").empty();
+            $("#StateID").append($("<option></option>").val("").html("Select State"));
+        }
+    }
+</script>
+
+@*@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}*@
