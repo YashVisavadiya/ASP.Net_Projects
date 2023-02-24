@@ -1,44 +1,42 @@
-﻿
-@{
-    ViewData["Title"] = "ContactCategoryAddEdit";
+﻿@{
+    ViewData["Title"] = "Contact Category Add/Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model ContactCategoryModel
 
-<div class="container">
-    <h2>@TempData["ContactCategory_Insert_Msg"]</h2>
-</div>
-
 <div class="row">
-    <div class="col-md-12">
-        <form method="post" asp-controller="ContactCategory">
+    <div class="col">
+
+        <h2>@TempData["ContactCategory_Insert_Msg"]</h2>
+
+        <form asp-controller="ContactCategory">
 
             @Html.HiddenFor(x => x.ContactCategoryID)
 
-            <div class="form-group">
-                <label>Category</label>
-                <input type="text" class="form-control" asp-for="ContactCategory" placeholder="Enter ContactCategory Name Here." />
+            <div class="form-floating mb-7">
+                <input type="text" class="form-control" id="floatingInput" asp-for="ContactCategory" placeholder="Friend" />
+                <label for="floatingInput"><span class="text-danger">*</span>Contact Category</label>
+                <span asp-validation-for="ContactCategory" class="text-danger"></span>
             </div>
 
             @Html.HiddenFor(x => x.CreationDate)
             @Html.HiddenFor(x => x.ModificationDate)
 
-            <br />
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-1">
-                        <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
-                    </div>
-                    <div class="col-1">
-                        <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
-                    </div>
+            <div class="row">
+                <div class="col-2">
+                    <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-danger" asp-action="Index">Cancel</a>
                 </div>
             </div>
         </form>
     </div>
-
 </div>
 
-
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

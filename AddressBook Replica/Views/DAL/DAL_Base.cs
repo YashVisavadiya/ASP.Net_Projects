@@ -756,7 +756,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@ContactID", DbType.Int32, ContactID);
 
                 #region DELETE_FILE_IN_DATABASE
-                //SqlDatabase database2 = new SqlDatabase(connectionString);
+
                 DbCommand command2 = database.GetStoredProcCommand("[dbo].[PR_MST_Contact_SelectPhotoPathByPK]");
                 database.AddInParameter(command2, "@ContactID", DbType.Int32, ContactID);
                 DataTable dt = new DataTable();
@@ -770,6 +770,7 @@ namespace AddressBook_Replica.Views.DAL
                     file_name = Convert.ToString(dt.Rows[0][1]);
                     file_name_with_path = Path.Combine(full_path, file_name);
                 }
+
                 //Delete File
                 if (File.Exists(file_name_with_path))
                 {

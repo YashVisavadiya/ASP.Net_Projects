@@ -1,40 +1,51 @@
 ﻿@{
-    ViewData["Title"] = "StateAddEdit";
+    ViewData["Title"] = "State Add/Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model StateModel
+@model StateModel;
 
-<h2>@TempData["State_Insert_Msg"]</h2>
+<div class="row">
+    <div class="col-md-12">
+        <h2>@TempData["State_Insert_Msg"]</h2>
 
-<div class="container">
-    <form method="post" class="form" asp-controller="State">
+        <div class="container">
+            <h2>State</h2>
+            <hr />
+            <form method="post" asp-controller="State">
 
-        @Html.HiddenFor(x => x.StateID)
+                @Html.HiddenFor(x => x.StateID)
 
-        <div class="form-group">
-            <label class="form-label">CountryName</label>
-            <select class="form-control" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))">
-                <option value="">Select Country</option>
-            </select>
+                <div class="form-group mb-7">
+                    <label><span class="text-danger">*</span>Country</label>
+                    <select class="form-select" data-control="select2" data-placeholder="Select Country" data-allow-clear="true" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList, "CountryID", "CountryName"))">
+                        <option value=""></option>
+                    </select>
+                    <span asp-validation-for="CountryID" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-7">
+                    <input type="text" class="form-control" id="floatingInput" asp-for="StateName" placeholder="Gujarat" />
+                    <label for="floatingInput"><span class="text-danger">*</span>State</label>
+                    <span asp-validation-for="StateName" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-light-success" asp-action="Save">Save</button>
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-light-danger" asp-action="Index">Cancel</a>
+                    </div>
+                </div>
+            </form>
         </div>
+    </div>
 
-        <div class="form-group">
-            <label class="form-label">StateName</label>
-            <input type="text" class="form-control" asp-for="StateName" placeholder="Enter State Name Here." />
-        </div>
-
-        @Html.HiddenFor(x => x.CreationDate)
-        @Html.HiddenFor(x => x.ModificationDate)
-
-        <div class="row">
-            <div class="col-1">
-                <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
-            </div>
-            <div class="col-1">
-                <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
-            </div>
-        </div>
-
-    </form>
 </div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

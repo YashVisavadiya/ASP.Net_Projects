@@ -122,6 +122,9 @@ namespace AddressBook_Replica.Controllers
             country_SearchModel.CountryName = HttpContext.Request.Form["CountryName"].ToString();
             country_SearchModel.CountryCode = HttpContext.Request.Form["CountryCode"].ToString();
 
+            ViewBag.CountryName = country_SearchModel.CountryName;
+            ViewBag.CountryCode = country_SearchModel.CountryCode;
+
             return View("CountryList", dal.Country_Search(connectionString,country_SearchModel));
         }
 

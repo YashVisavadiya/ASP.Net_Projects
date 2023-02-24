@@ -1,53 +1,62 @@
 ﻿@{
-    ViewData["Title"] = "CityAddEdit";
+    ViewData["Title"] = "CountryList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model CityModel
 
-<h2>@TempData["City_Insert_Msg"]</h2>
+<div class="row">
+    <div class="col-md-12">
 
-<div class="container">
-    <form method="post" class="form" asp-controller="City">
+        <h2>@TempData["City_Insert_Msg"]</h2>
+        <div class="container">
+            <h2>City</h2>
+            <hr />
+            <form method="post" asp-controller="City">
 
-        @Html.HiddenFor(x => x.CityID)
+                @Html.HiddenFor(x => x.CityID)
 
-        <div class="form-group">
-            <label class="form-label">CountryName</label>
-            <select class="form-control" id="CountryID" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList,"CountryID","CountryName"))" onchange="funOnCountryChange();">
-                <option value="">Select Country</option>
-            </select>
+                <div class="form-group mb-7">
+                    <label><span class="text-danger">*</span>Country</label>
+                    <select class="form-select" data-control="select2" data-placeholder="Select Country" data-allow-clear="true" asp-for="CountryID" asp-items="@(new SelectList(ViewBag.CountryList, "CountryID", "CountryName"))" onchange="funOnStateChange();">
+                        <option value=""></option>
+                    </select>
+                    <span asp-validation-for="CountryID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-7">
+                    <label><span class="text-danger">*</span>State</label>
+                    <select class="form-select" data-control="select2" data-placeholder="Select State" data-allow-clear="true" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList,"StateID","StateName"))">
+                        <option value=""></option>
+                    </select>
+                    <span asp-validation-for="StateID" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-7">
+                    <input type="text" class="form-control" id="floatingInput" asp-for="CityName" placeholder="Enter City Name Here..." />
+                    <label for="floatingInput"><span class="text-danger">*</span>City</label>
+                    <span asp-validation-for="CityName" class="text-danger"></span>
+                </div>
+
+
+                @Html.HiddenFor(x => x.CreationDate)
+                @Html.HiddenFor(x => x.ModificationDate)
+
+                <div class="row">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-light-success" asp-action="Save">Save</button>
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-light-danger" asp-action="Index">Cancel</a>
+                    </div>
+                </div>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label class="form-label">StateName</label>
-            <select class="form-control" id="StateID" asp-for="StateID" asp-items="@(new SelectList(ViewBag.StateList,"StateID","StateName"))">
-                <option value="">Select State</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label class="form-label">CityName</label>
-            <input type="text" class="form-control" asp-for="CityName" placeholder="Enter City Name Here." />
-        </div>
-
-        @Html.HiddenFor(x => x.CreationDate)
-        @Html.HiddenFor(x => x.ModificationDate)
-
-        <div class="row">
-            <div class="col-1">
-                <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
-            </div>
-            <div class="col-1">
-                <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
-            </div>
-        </div>
-
-    </form>
+    </div>
 </div>
 
 <script>
-    function funOnCountryChange() {
+    function funOnStateChange() {
         var CountryID = $("#CountryID").val();
 
         if (CountryID !== "") {
@@ -66,7 +75,7 @@
                         });
                     },
                     error: function (err) {
-                        console.log("Error : ",err);
+                        alert("Error While Running AJAX");
                     }
                 }
             )
@@ -78,8 +87,8 @@
     }
 </script>
 
-@*@section Scripts{
+@section Scripts{
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}*@
+}

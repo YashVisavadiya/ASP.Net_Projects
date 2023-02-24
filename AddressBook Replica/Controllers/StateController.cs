@@ -120,6 +120,9 @@ namespace AddressBook_Replica.Controllers
             state_SearchModel.CountryName = HttpContext.Request.Form["CountryName"].ToString();
             state_SearchModel.StateName = HttpContext.Request.Form["StateName"].ToString();
 
+            ViewBag.CountryName = state_SearchModel.CountryName;
+            ViewBag.StateName = state_SearchModel.StateName;
+
             return View("StateList", dal.State_Search(connectionString,state_SearchModel));
         }
 

@@ -1,6 +1,8 @@
 ﻿using AddressBook_Replica.Models;
 using AddressBook_Replica.Views.DAL;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AddressBook_Replica.Controllers
 {
@@ -142,6 +144,10 @@ namespace AddressBook_Replica.Controllers
             city_SearchModel.CountryName = HttpContext.Request.Form["CountryName"].ToString();
             city_SearchModel.StateName = HttpContext.Request.Form["StateName"].ToString();
             city_SearchModel.CityName = HttpContext.Request.Form["CityName"].ToString();
+
+            ViewBag.CountryName = city_SearchModel.CountryName;
+            ViewBag.StateName = city_SearchModel.StateName;
+            ViewBag.CityName = city_SearchModel.CityName;
 
             return View("CityList", dal.City_Search(connectionString, city_SearchModel));
         }

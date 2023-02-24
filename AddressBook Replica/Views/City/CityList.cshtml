@@ -1,116 +1,114 @@
 ﻿@{
-    ViewData["Title"] = "CityList";
+    ViewData["Title"] = "City";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using System.Data
-@model DataTable
+@using System.Data;
+@model DataTable;
 
-<div class="container">
-    <h2>@TempData["City_Delete_Msg"]</h2>
-    <h2>@TempData["City_Update_Msg"]</h2>
-</div>
-
-<hr />
-
-<div class="container">
-    <h2>Search Box</h2>
-    <form method="post" asp-controller="City">
-        <div class="row">
-            <div class="col-4">
-                <label>Country</label>
-                <input type="text" class="form-control" name="CountryName" placeholder="Enter Country Here." />
-            </div>
-
-            <div class="col-4">
-                <label>State</label>
-                <input type="text" class="form-control" name="StateName" placeholder="Enter State Here." />
-            </div>
-
-            <div class="col-4">
-                <label>City</label>
-                <input type="text" class="form-control" name="CityName" placeholder="Enter City Here." />
-            </div>
-
-            <div class="col-4" style="margin-top:31px">
-                <button type="submit" class="btn btn-outline-info" asp-action="Search">Search</button>
-            </div>
-
-            <div class="col-4" style="margin-top:31px">
-                <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
-            </div>
-
+<div class="container-fluid">
+    <div class="portlet-body">
+        <div>
+            <h2>@TempData["City_Delete_Msg"]</h2>
+            <h2>@TempData["City_Update_Msg"]</h2>
         </div>
-    </form>
-</div>
 
-<hr />
+        <div class="container">
+            <h2>Search Box</h2>
+            <hr />
+            <form method="post" asp-controller="City">
+                <div class="row">
+                    <div class="form-floating mb-7 col-4">
+                        <input type="text" class="form-control" id="floatingInput" name="CountryName" placeholder="India" value="@ViewBag.CountryName" />
+                        <label for="floatingInput">&nbsp;&nbsp; Country Name</label>
+                    </div>
 
-<div class="container">
-    <h1>City</h1>
-    <form method="post" asp-controller="City">
-        <button type="submit" class="btn btn-outline-info" asp-action="Add">Add City</button>
-    </form>
-    <div class="input-group" style="margin-top:11px">
-        <input type="text" class="form-control" id="sample_1" placeholder="Search here...">
-        <div class="input-group-append">
-            <button class="btn btn-secondary" type="button">
-                <i class="fa fa-search"></i>
-            </button>
+                    <div class="form-floating mb-7 col-4">
+                        <input type="text" class="form-control" id="floatingInput" name="StateName" placeholder="Gujarat" value="@ViewBag.StateName" />
+                        <label for="floatingInput">&nbsp;&nbsp; State Name</label>
+                    </div>
+
+                    <div class="form-floating mb-7 col-4">
+                        <input type="text" class="form-control" id="floatingInput" name="CityName" placeholder="Gujarat" value="@ViewBag.CityName" />
+                        <label for="floatingInput">&nbsp;&nbsp; City Name</label>
+                    </div>
+
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-light-success" asp-action="Search">Search</button>
+                    </div>
+                    <div class="col-2">
+                        <a class="btn btn-light-danger" asp-action="Index">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+
+        <div class="d-flex">
+            <div style="flex-grow:9">
+                <span style="font-size: 30px; font-weight: 700; margin-bottom: 10px">City</span>
+            </div>
+            <div style="flex-grow:1">
+                <form asp-controller="City" asp-action="Add">
+                    <button type="submit" class="btn btn-light-primary">Insert Record</button>
+                </form>
+            </div>
+            <hr />
         </div>
     </div>
-</div>
-<hr />
+    <br />
 
-<div class="container">
-    <table class="table" id="sample_1">
-        <thead>
-            <tr>
-                <th>CountryName</th>
-                <th>StateName</th>
-                <th>CityName</th>
-                <th>Creation Date</th>
-                <th>Modification Date</th>
-                <th colspan="2">Action</th>
-            </tr>
-        </thead>
-
-        <tbody id="sample_2">
-            @foreach (DataRow dr in Model.Rows)
-            {
-                <tr>
-                    <td>@dr["CountryName"]</td>
-                    <td>@dr["StateName"]</td>
-                    <td>@dr["CityName"]</td>
-                    <td>@dr["CreationDate"]</td>
-                    <td>@dr["ModificationDate"]</td>
-                    <td>
-                        <form method="post" asp-controller="City">
-                            <input type="hidden" name="CityID" value="@Convert.ToInt32(dr["CityID"])" />
-                            <button type="submit" class="btn btn-outline-primary" asp-action="Add">Edit</button>
-                        </form>
-                    </td>
-                    <td>
-                        <form>
-                            <input type="hidden" name="CityID" value="@Convert.ToInt32(dr["CityID"])" />
-                            <button type="submit" class="btn btn-outline-danger" asp-action="Delete">Delete</button>
-                        </form>
-                    </td>
+    <div class="table-responsive pb-3 border-dark border-bottom border-3 align-middle">
+        <table id="kt_datatable_dom_positioning" class="table table-striped table-row-bordered gy-5 gs-7 border rounded">
+            <thead>
+                <tr class="fw-bold fs-6 text-gray-800 px-7">
+                    <th scope="col">Country Name</th>
+                    <th scope="col">State Name</th>
+                    <th scope="col">City Name</th>
+                    <th scope="col">Creation Date</th>
+                    <th scope="col">Modification Date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (DataRow dr in Model.Rows)
+                {
+                    <tr>
+                        <td>@dr["CountryName"]</td>
+                        <td>@dr["StateName"]</td>
+                        <td>@dr["CityName"]</td>
+                        <td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
+                        <td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
+                        <td>
+                            <form asp-controller="City">
+                                <input type="hidden" name="CityID" value="@Convert.ToInt32(dr["CityID"])" />
+                                <button type="submit" class="btn btn-light-primary" asp-action="Add"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
+                        </td>
+                        <td>
+                            <form asp-controller="City">
+                                <input type="hidden" name="CityID" value="@Convert.ToInt32(dr["CityID"])" />
+                                <button type="submit" class="btn btn-light-danger" asp-action="Delete" onclick="return Take_Confirmation()"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
-
-@section Scripts{
+@section Scripts
+    {
     <script>
-        $(document).ready(function () {
-            $("#sample_1").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#sample_2 tr").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
+        function Take_Confirmation() {
+            if (confirm("Are you sure you want to Delete?")) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
     </script>
-}
+    }

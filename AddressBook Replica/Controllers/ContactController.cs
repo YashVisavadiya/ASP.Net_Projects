@@ -1,6 +1,8 @@
 ﻿using AddressBook_Replica.Models;
 using AddressBook_Replica.Views.DAL;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography.X509Certificates;
+using System.Xml.Linq;
 
 namespace AddressBook_Replica.Controllers
 {
@@ -174,6 +176,13 @@ namespace AddressBook_Replica.Controllers
             contact_SearchModel.Name = HttpContext.Request.Form["Name"].ToString();
             contact_SearchModel.Email = HttpContext.Request.Form["Email"].ToString();
             contact_SearchModel.Mobile = HttpContext.Request.Form["Mobile"].ToString();
+
+            ViewBag.CountryName = contact_SearchModel.CountryName;
+            ViewBag.StateName = contact_SearchModel.StateName;
+            ViewBag.CityName = contact_SearchModel.CityName;
+            ViewBag.Name = contact_SearchModel.Name;
+            ViewBag.Email = contact_SearchModel.Email;
+            ViewBag.ContactCategory = contact_SearchModel.Category;
 
             return View("ContactList",dal.Contact_Search(connectionString,contact_SearchModel));
         }

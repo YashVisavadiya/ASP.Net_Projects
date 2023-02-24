@@ -1,47 +1,50 @@
-﻿
-@{
-    ViewData["Title"] = "CountryAddEdit";
+﻿@{
+    ViewData["Title"] = "Country Add/Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-@model CountryModel
-
-<div class="container">
-    <h2>@TempData["Country_Insert_Msg"]</h2>
-</div>
+@model CountryModel;
 
 <div class="row">
     <div class="col-md-12">
-        <form method="post" asp-controller="Country">
 
-            @Html.HiddenFor(x => x.CountryID)
+        <h2>@TempData["Country_Insert_Msg"]</h2>
+        <div class="container">
+            <h2>Country</h2>
+            <hr />
+            <form method="post" asp-controller="Country">
 
-            <div class="form-group">
-                <label>Country Name</label>
-                <input type="text" class="form-control" asp-for="CountryName" placeholder="Enter Country Name Here." />
-            </div>
+                @Html.HiddenFor(x => x.CountryID)
 
-            <div class="form-group">
-                <label>Country Code</label>
-                <input type="text" class="form-control" asp-for="CountryCode" placeholder="Enter Country Code Here." />
-            </div>
+                <div class="form-floating mb-7">
+                    <input type="text" class="form-control" id="floatingInput" asp-for="CountryName" placeholder="India" />
+                    <label for="floatingInput"><span class="text-danger">*</span>Country Name</label>
+                    <span asp-validation-for="CountryName" class="text-danger"></span>
+                </div>
 
-            @Html.HiddenFor(x => x.CreationDate)
-            @Html.HiddenFor(x => x.ModificationDate)
+                <div class="form-floating mb-7">
+                    <input type="text" class="form-control" id="floatingInput" asp-for="CountryCode" placeholder="IND" />
+                    <label for="floatingInput"><span class="text-danger">*</span>Country Code</label>
+                    <span asp-validation-for="CountryCode" class="text-danger"></span>
+                </div>
 
-            <br />
-
-            <div class="form-group">
+                @Html.HiddenFor(x => x.CreationDate)
+                @Html.HiddenFor(x => x.ModificationDate)
                 <div class="row">
-                    <div class="col-1">
+                    <div class="col-2">
                         <button type="submit" class="btn btn-outline-success" asp-action="Save">Save</button>
                     </div>
-                    <div class="col-1">
-                        <button type="submit" class="btn btn-outline-danger" asp-action="Index">Cancel</button>
+                    <div class="col-2">
+                        <a class="btn btn-outline-danger" asp-action="Index">Cancel</a>
                     </div>
                 </div>
-            </div>
-        </form>
+
+            </form>
+        </div>
     </div>
-    
 </div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
