@@ -14,6 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\CON_ContactCategory\Data\" />
+    <Folder Include="Areas\CON_Contact\Data\" />
+    <Folder Include="Areas\LOC_City\Data\" />
+    <Folder Include="Areas\LOC_Country\Data\" />
+    <Folder Include="Areas\LOC_State\Data\" />
     <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 

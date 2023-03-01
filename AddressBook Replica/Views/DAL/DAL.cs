@@ -1,4 +1,7 @@
-﻿using AddressBook_Replica.Models;
+﻿using AddressBook_Replica.Areas.CON_ContactCategory.Models;
+using AddressBook_Replica.Areas.LOC_City.Models;
+using AddressBook_Replica.Areas.LOC_Country.Models;
+using AddressBook_Replica.Areas.LOC_State.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data;
 using System.Data.Common;
@@ -9,7 +12,7 @@ namespace AddressBook_Replica.Views.DAL
     {
         #region COUNTRY_DROPDOWN
 
-        public List<Country_DropDownModel> Country_DropDown(string connectionString)
+        public List<LOC_Country_DropDownModel> LOC_Country_DropDown(string connectionString)
         {
             try
             {
@@ -17,7 +20,7 @@ namespace AddressBook_Replica.Views.DAL
                 DbCommand command = database.GetStoredProcCommand("[dbo].[PR_LOC_Country_SelectComboBox]");
 
                 DataTable dt = new DataTable();
-                List<Country_DropDownModel> country_list = new List<Country_DropDownModel>();
+                List<LOC_Country_DropDownModel> country_list = new List<LOC_Country_DropDownModel>();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -27,7 +30,7 @@ namespace AddressBook_Replica.Views.DAL
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            Country_DropDownModel tuple = new Country_DropDownModel();
+                            LOC_Country_DropDownModel tuple = new LOC_Country_DropDownModel();
                             tuple.CountryID = Convert.ToInt32(dr["CountryID"]);
                             tuple.CountryName = Convert.ToString(dr["CountryName"]);
                             country_list.Add(tuple);
@@ -47,7 +50,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region STATE_DROPDOWN
 
-        public List<State_DropDownModel> State_DropDown(string connectionString, int CountryID)
+        public List<LOC_State_DropDownModel> LOC_State_DropDown(string connectionString, int CountryID)
         {
             try
             {
@@ -57,7 +60,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@CountryID", DbType.Int32, CountryID);
 
                 DataTable dt = new DataTable();
-                List<State_DropDownModel> state_list = new List<State_DropDownModel>();
+                List<LOC_State_DropDownModel> state_list = new List<LOC_State_DropDownModel>();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -67,7 +70,7 @@ namespace AddressBook_Replica.Views.DAL
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            State_DropDownModel tuple = new State_DropDownModel();
+                            LOC_State_DropDownModel tuple = new LOC_State_DropDownModel();
                             tuple.StateID = Convert.ToInt32(dr["StateID"]);
                             tuple.StateName = Convert.ToString(dr["StateName"]);
                             state_list.Add(tuple);
@@ -87,7 +90,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region CITY_DROPDOWN
 
-        public List<City_DropDownModel> City_DropDown(string connectionString, int StateID)
+        public List<LOC_City_DropDownModel> LOC_City_DropDown(string connectionString, int StateID)
         {
             try
             {
@@ -97,7 +100,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@StateID", DbType.Int32, StateID);
 
                 DataTable dt = new DataTable();
-                List<City_DropDownModel> city_list = new List<City_DropDownModel>();
+                List<LOC_City_DropDownModel> city_list = new List<LOC_City_DropDownModel>();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -107,7 +110,7 @@ namespace AddressBook_Replica.Views.DAL
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            City_DropDownModel tuple = new City_DropDownModel();
+                            LOC_City_DropDownModel tuple = new LOC_City_DropDownModel();
                             tuple.CityID = Convert.ToInt32(dr["CityID"]);
                             tuple.CityName = Convert.ToString(dr["CityName"]);
                             city_list.Add(tuple);
@@ -127,7 +130,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region CONTACTCATEGORY_DROPDOWN
 
-        public List<ContactCategory_DropDownModel> ContactCategory_DropDown(string connectionString)
+        public List<CON_ContactCategory_DropDownModel> CON_ContactCategory_DropDown(string connectionString)
         {
             try
             {
@@ -135,7 +138,7 @@ namespace AddressBook_Replica.Views.DAL
                 DbCommand command = database.GetStoredProcCommand("[dbo].[PR_CON_ContactCategory_SelectComboBox]");
 
                 DataTable dt = new DataTable();
-                List<ContactCategory_DropDownModel> contactCategory_list = new List<ContactCategory_DropDownModel>();
+                List<CON_ContactCategory_DropDownModel> contactCategory_list = new List<CON_ContactCategory_DropDownModel>();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -145,7 +148,7 @@ namespace AddressBook_Replica.Views.DAL
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            ContactCategory_DropDownModel tuple = new ContactCategory_DropDownModel();
+                            CON_ContactCategory_DropDownModel tuple = new CON_ContactCategory_DropDownModel();
                             tuple.ContactCategoryID = Convert.ToInt32(dr["ContactCategoryID"]);
                             tuple.ContactCategory = Convert.ToString(dr["ContactCategory"]);
                             contactCategory_list.Add(tuple);

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nishi\\Source\\Repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj": {}
+    "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nishi\\Source\\Repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj": {
+    "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nishi\\Source\\Repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj",
+        "projectUniqueName": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj",
         "projectName": "AddressBook Replica",
-        "projectPath": "C:\\Users\\nishi\\Source\\Repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj",
+        "projectPath": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\AddressBook Replica.csproj",
         "packagesPath": "C:\\Users\\nishi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nishi\\Source\\Repos\\ASP.Net Projects\\AddressBook Replica\\obj\\",
+        "outputPath": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nishi\\AppData\\Roaming\\NuGet\\NuGet.Config",

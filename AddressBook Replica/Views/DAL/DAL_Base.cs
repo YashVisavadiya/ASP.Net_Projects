@@ -1,4 +1,8 @@
-﻿using AddressBook_Replica.Models;
+﻿using AddressBook_Replica.Areas.CON_Contact.Models;
+using AddressBook_Replica.Areas.CON_ContactCategory.Models;
+using AddressBook_Replica.Areas.LOC_City.Models;
+using AddressBook_Replica.Areas.LOC_Country.Models;
+using AddressBook_Replica.Areas.LOC_State.Models;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System.Data;
 using System.Data.Common;
@@ -12,7 +16,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region Select_All
 
-        public DataTable Country_SelectAll(string connectionString)
+        public DataTable LOC_Country_SelectAll(string connectionString)
         {
             try
             {
@@ -38,7 +42,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_BY_PK
 
-        public CountryModel Country_SelectByPK(string connectionString, int? CountryID)
+        public LOC_CountryModel LOC_Country_SelectByPK(string connectionString, int? CountryID)
         {
             try
             {
@@ -47,7 +51,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@CountryID", DbType.Int32, CountryID);
 
                 DataTable dt = new DataTable();
-                CountryModel countryModel = new CountryModel();
+                LOC_CountryModel countryModel = new LOC_CountryModel();
 
                 using(IDataReader dataReader= database.ExecuteReader(command))
                 {
@@ -76,7 +80,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region INSERT
 
-        public bool Country_Insert(string connectionString, CountryModel countryModel)
+        public bool LOC_Country_Insert(string connectionString, LOC_CountryModel countryModel)
         {
             try
             {
@@ -100,7 +104,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region DELETE
 
-        public bool Country_Delete(string connectionString, int CountryID)
+        public bool LOC_Country_Delete(string connectionString, int CountryID)
         {
             try
             {
@@ -121,7 +125,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region UPDATE
 
-        public bool Country_Update(string connectionString,CountryModel countryModel)
+        public bool LOC_Country_Update(string connectionString,LOC_CountryModel countryModel)
         {
             try
             {
@@ -146,7 +150,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SEARCH
 
-        public DataTable Country_Search(string connectionString , Country_SearchModel country_SearchModel)
+        public DataTable LOC_Country_Search(string connectionString , LOC_Country_SearchModel country_SearchModel)
         {
             try
             {
@@ -178,7 +182,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_ALL
 
-        public DataTable State_SelectAll(string connectionString)
+        public DataTable LOC_State_SelectAll(string connectionString)
         {
             try
             {
@@ -202,7 +206,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_BY_PK
 
-        public StateModel State_SelectByPk(string connectionString, int? StateID)
+        public LOC_StateModel LOC_State_SelectByPk(string connectionString, int? StateID)
         {
             try
             {
@@ -212,7 +216,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@StateID", DbType.Int32, StateID);
 
                 DataTable dt = new DataTable();
-                StateModel stateModel = new StateModel();
+                LOC_StateModel stateModel = new LOC_StateModel();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -240,7 +244,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region DELETE
 
-        public bool State_Delete(string connectionString, int StateID)
+        public bool LOC_State_Delete(string connectionString, int StateID)
         {
             try
             {
@@ -262,7 +266,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region INSERT
 
-        public bool State_Insert(string connectionString, StateModel stateModel)
+        public bool LOC_State_Insert(string connectionString, LOC_StateModel stateModel)
         {
             try
             {
@@ -287,7 +291,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region UPDATE
 
-        public bool State_Update(string connectionString, StateModel stateModel)
+        public bool LOC_State_Update(string connectionString, LOC_StateModel stateModel)
         {
             try
             {
@@ -312,7 +316,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SEARCH
 
-        public DataTable State_Search(string connectionString, State_SearchModel state_SearchModel)
+        public DataTable LOC_State_Search(string connectionString, LOC_State_SearchModel state_SearchModel)
         {
             try
             {
@@ -344,7 +348,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_ALL
 
-        public DataTable City_SelectAll(string connectionString)
+        public DataTable LOC_City_SelectAll(string connectionString)
         {
             try
             {
@@ -369,7 +373,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_BY_PK
 
-        public CityModel City_SelectByPk(string connectionString, int? CityID)
+        public LOC_CityModel LOC_City_SelectByPk(string connectionString, int? CityID)
         {
             try
             {
@@ -379,7 +383,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@CityID", DbType.Int32, CityID);
 
                 DataTable dt = new DataTable();
-                CityModel cityModel = new CityModel();
+                LOC_CityModel cityModel = new LOC_CityModel();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -408,7 +412,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region DELETE
 
-        public bool City_Delete(string connectionString, int CityID)
+        public bool LOC_City_Delete(string connectionString, int CityID)
         {
             try
             {
@@ -430,7 +434,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region INSERT
 
-        public bool City_Insert(string connectionString, CityModel CityModel)
+        public bool LOC_City_Insert(string connectionString, LOC_CityModel CityModel)
         {
             try
             {
@@ -456,7 +460,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region UPDATE
 
-        public bool City_Update(string connectionString, CityModel CityModel)
+        public bool LOC_City_Update(string connectionString, LOC_CityModel CityModel)
         {
             try
             {
@@ -482,7 +486,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SEARCH
 
-        public DataTable City_Search(string connectionString, City_SearchModel city_SearchModel)
+        public DataTable LOC_City_Search(string connectionString, LOC_City_SearchModel city_SearchModel)
         {
             try
             {
@@ -515,7 +519,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region Select_All
 
-        public DataTable ContactCategory_SelectAll(string connectionString)
+        public DataTable CON_ContactCategory_SelectAll(string connectionString)
         {
             try
             {
@@ -541,7 +545,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_BY_PK
 
-        public ContactCategoryModel ContactCategory_SelectByPK(string connectionString, int? ContactCategoryID)
+        public CON_ContactCategoryModel CON_ContactCategory_SelectByPK(string connectionString, int? ContactCategoryID)
         {
             try
             {
@@ -550,7 +554,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@ContactCategoryID", DbType.Int32, ContactCategoryID);
 
                 DataTable dt = new DataTable();
-                ContactCategoryModel contactCategoryModel = new ContactCategoryModel();
+                CON_ContactCategoryModel contactCategoryModel = new CON_ContactCategoryModel();
 
                 using(IDataReader dataReader= database.ExecuteReader(command))
                 {
@@ -577,7 +581,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region INSERT
 
-        public bool ContactCategory_Insert(string connectionString, ContactCategoryModel ContactCategoryModel)
+        public bool CON_ContactCategory_Insert(string connectionString, CON_ContactCategoryModel ContactCategoryModel)
         {
             try
             {
@@ -600,7 +604,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region DELETE
 
-        public bool ContactCategory_Delete(string connectionString, int ContactCategoryID)
+        public bool CON_ContactCategory_Delete(string connectionString, int ContactCategoryID)
         {
             try
             {
@@ -621,7 +625,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region UPDATE
 
-        public bool ContactCategory_Update(string connectionString,ContactCategoryModel ContactCategoryModel)
+        public bool CON_ContactCategory_Update(string connectionString,CON_ContactCategoryModel ContactCategoryModel)
         {
             try
             {
@@ -645,7 +649,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SEARCH
 
-        public DataTable ContactCategory_Search(string connectionString, ContactCategory_SearchModel contactCategory_SearchModel)
+        public DataTable CON_ContactCategory_Search(string connectionString, CON_ContactCategory_SearchModel contactCategory_SearchModel)
         {
             try
             {
@@ -676,7 +680,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_ALL
 
-        public DataTable Contact_SelectAll(string connectionString)
+        public DataTable CON_Contact_SelectAll(string connectionString)
         {
             try
             {
@@ -701,7 +705,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SELECT_BY_PK
 
-        public ContactModel Contact_SelectByPk(string connectionString, int? ContactID)
+        public CON_ContactModel CON_Contact_SelectByPk(string connectionString, int? ContactID)
         {
             try
             {
@@ -711,7 +715,7 @@ namespace AddressBook_Replica.Views.DAL
                 database.AddInParameter(command, "@ContactID", DbType.Int32, ContactID);
 
                 DataTable dt = new DataTable();
-                ContactModel contactModel = new ContactModel();
+                CON_ContactModel contactModel = new CON_ContactModel();
 
                 using (IDataReader dataReader = database.ExecuteReader(command))
                 {
@@ -747,7 +751,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region DELETE
 
-        public bool Contact_Delete(string connectionString, int ContactID)
+        public bool CON_Contact_Delete(string connectionString, int ContactID)
         {
             try
             {
@@ -792,7 +796,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region INSERT
 
-        public bool Contact_Insert(string connectionString, ContactModel contactModel)
+        public bool CON_Contact_Insert(string connectionString, CON_ContactModel contactModel)
         {
             try
             {
@@ -849,7 +853,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region UPDATE
 
-        public bool Contact_Update(string connectionString, ContactModel contactModel,string delete_file_name)
+        public bool CON_Contact_Update(string connectionString, CON_ContactModel contactModel,string delete_file_name)
         {
             try
             {
@@ -912,7 +916,7 @@ namespace AddressBook_Replica.Views.DAL
 
         #region SEARCH
 
-        public DataTable Contact_Search(string connectionString, Contact_SearchModel contact_SearchModel)
+        public DataTable CON_Contact_Search(string connectionString, CON_Contact_SearchModel contact_SearchModel)
         {
             try
             {
