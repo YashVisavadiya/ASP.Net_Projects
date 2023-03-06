@@ -16,18 +16,17 @@
         <div class="container">
             <h2>Search Box</h2>
             <hr />
-            <form method="post" asp-area="CON_ContactCategory" asp-controller="Home">
+            <form method="post" asp-area="CON_ContactCategory" asp-controller="CON_ContactCategory">
                 <div class="row">
                     <div class="form-floating mb-7 col-4">
-                        <input type="text" name="ContactCategory" class="form-control" id="floatingInput" placeholder="Friend" value="@ViewBag.ContactCategory" />
+                        <input type="text" name="ContactCategory" class="form-control rounded-pill" id="floatingInput" placeholder="Friend" value="@ViewBag.ContactCategory" />
                         <label for="floatingInput">&nbsp;&nbsp; Contact Category</label>
                     </div>
 
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-light-success" asp-action="Search">Search</button>
-                    </div>
-                    <div class="col-2">
-                        <a class="btn btn-light-danger" asp-action="Index">Cancel</a>
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-success rounded-pill" asp-action="Search">Search</button>
+                        &nbsp;
+                        <a class="btn btn-danger rounded-pill" asp-action="Index">Cancel</a>
                     </div>
                 </div>
             </form>
@@ -39,8 +38,8 @@
                 <span style="font-size: 30px; font-weight: 700; margin-bottom: 10px">City</span>
             </div>
             <div style="flex-grow:1">
-                <form asp-area="CON_ContactCategory" asp-controller="Home" >
-                    <button type="submit" class="btn btn-light-primary" asp-action="Add">Insert Record</button>
+                <form asp-area="CON_ContactCategory" asp-controller="CON_ContactCategory" >
+                    <button type="submit" class="btn btn-primary rounded-pill" asp-action="Add">Insert Record</button>
                 </form>
             </div>
             <hr />
@@ -66,15 +65,14 @@
                         <td>@Convert.ToDateTime(dr["CreationDate"]).ToString("dd-MM-yyyy")</td>
                         <td>@Convert.ToDateTime(dr["ModificationDate"]).ToString("dd-MM-yyyy")</td>
                         <td>
-                            <form asp-area="CON_ContactCategory" asp-controller="Home">
-                                    @*<input type="hidden" name="ContactCategoryID" value="@Convert.ToInt32(dr["ContactCategoryID"])" />*@
-                                <button type="submit" class="btn btn-light-primary" asp-action="Add" asp-route-ContactCategoryID="@Convert.ToInt32(dr["ContactCategoryID"])"><i class="fa-solid fa-pen-to-square"></i></button>
+                            <form asp-area="CON_ContactCategory" asp-controller="CON_ContactCategory">
+                                <button type="submit" class="btn btn-primary rounded-pill" asp-action="Add" asp-route-ContactCategoryID="@Convert.ToInt32(dr["ContactCategoryID"])"><i class="fa-solid fa-pen-to-square"></i></button>
                             </form>
                         </td>
                         <td>
-                            <form asp-area="CON_ContactCategory" asp-controller="Home">
+                            <form asp-area="CON_ContactCategory" asp-controller="CON_ContactCategory">
                                 <input type="hidden" name="ContactCategoryID" value="@Convert.ToInt32(dr["ContactCategoryID"])" />
-                                <button type="submit" class="btn btn-light-danger" asp-action="Delete" onclick="return Take_Confirmation()"><i class="fa-solid fa-trash"></i></button>
+                                <button type="submit" class="btn btn-danger rounded-pill" asp-action="Delete" onclick="return Take_Confirmation()"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>

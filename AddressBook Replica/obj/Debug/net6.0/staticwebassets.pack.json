@@ -8637,6 +8637,18 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\logo.png",
+      "PackagePath": "staticwebassets\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\logo.svg",
+      "PackagePath": "staticwebassets\\logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\logo1.png",
+      "PackagePath": "staticwebassets\\logo1.png"
+    },
+    {
       "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\upload\\Bhargav.jpg",
       "PackagePath": "staticwebassets\\upload\\Bhargav.jpg"
     },
@@ -8647,6 +8659,10 @@
     {
       "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\upload\\Ravi.jpg",
       "PackagePath": "staticwebassets\\upload\\Ravi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\upload\\Uttam.jpg",
+      "PackagePath": "staticwebassets\\upload\\Uttam.jpg"
     },
     {
       "Id": "C:\\Users\\nishi\\source\\repos\\ASP.Net Projects\\AddressBook Replica\\wwwroot\\upload\\Yash-Visavadia.jpg",

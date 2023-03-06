@@ -11,6 +11,8 @@
         public DateTime CreationDate { get; set; }
 
         public DateTime ModificationDate { get; set; }
+
+        public int? UserID { get; set;}
     }
     public class LOC_Country_DropDownModel
     {
@@ -21,8 +23,8 @@
 
     public class LOC_Country_SearchModel
     {
-        public string CountryName { get; set; }
+        public string? CountryName { get; set; }
 
-        public string CountryCode { get; set; }
+        public string? CountryCode { get; set; }
     }
 }

@@ -9,6 +9,7 @@
         public DateTime CreationDate { get; set; }
 
         public DateTime ModificationDate { get; set; }
+        public int? UserID { get; set; }
     }
 
     public class CON_ContactCategory_DropDownModel
@@ -20,6 +21,6 @@
 
     public class CON_ContactCategory_SearchModel
     {
-        public string ContactCategory { get; set; }
+        public string? ContactCategory { get; set; }
     }
 }
