@@ -16,60 +16,60 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\nishi\source\repos\ASP.Net Projects\AddressBook Replica
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_ContactCategory/Views/Home/CON_ContactCategoryAddEdit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RDYXRlZ29yeVxWaWV3c1xIb21lXENPTl9Db250YWN0Q2F0ZWdvcnlBZGRFZGl0LmNzaHRtbA==
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_ContactCategory/Views/CON_ContactCategory/CON_ContactCategoryAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RDYXRlZ29yeVxWaWV3c1xDT05fQ29udGFjdENhdGVnb3J5XENPTl9Db250YWN0Q2F0ZWdvcnlBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_ContactCategory/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RDYXRlZ29yeVxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_ContactCategory/Views/CON_ContactCategory/CON_ContactCategoryList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RDYXRlZ29yeVxWaWV3c1xDT05fQ29udGFjdENhdGVnb3J5XENPTl9Db250YWN0Q2F0ZWdvcnlMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_ContactCategory/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RDYXRlZ29yeVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_Contact/Views/Home/CON_ContactAddEdit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RcVmlld3NcSG9tZVxDT05fQ29udGFjdEFkZEVkaXQuY3NodG1s
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_Contact/Views/CON_Contact/CON_ContactAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RcVmlld3NcQ09OX0NvbnRhY3RcQ09OX0NvbnRhY3RBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_Contact/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_Contact/Views/CON_Contact/CON_ContactList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RcVmlld3NcQ09OX0NvbnRhY3RcQ09OX0NvbnRhY3RMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/CON_Contact/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ09OX0NvbnRhY3RcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_City/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_City/Views/LOC_City/LOC_CityAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcTE9DX0NpdHlcTE9DX0NpdHlBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_City/Views/Home/LOC_CityAddEdit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcSG9tZVxMT0NfQ2l0eUFkZEVkaXQuY3NodG1s
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_City/Views/LOC_City/LOC_CityList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcTE9DX0NpdHlcTE9DX0NpdHlMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_City/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NpdHlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_Country/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_Country/Views/LOC_Country/LOC_CountryAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcTE9DX0NvdW50cnlcTE9DX0NvdW50cnlBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_Country/Views/Home/LOC_CountryAddEdit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcSG9tZVxMT0NfQ291bnRyeUFkZEVkaXQuY3NodG1s
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_Country/Views/LOC_Country/LOC_CountryList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcTE9DX0NvdW50cnlcTE9DX0NvdW50cnlMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_Country/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX0NvdW50cnlcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_State/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_State/Views/LOC_State/LOC_StateAddEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXExPQ19TdGF0ZVxMT0NfU3RhdGVBZGRFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_State/Views/Home/LOC_StateAddEdit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXEhvbWVcTE9DX1N0YXRlQWRkRWRpdC5jc2h0bWw=
+[C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_State/Views/LOC_State/LOC_StateList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTE9DX1N0YXRlXFZpZXdzXExPQ19TdGF0ZVxMT0NfU3RhdGVMaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/nishi/source/repos/ASP.Net Projects/AddressBook Replica/Areas/LOC_State/Views/_ViewImports.cshtml]

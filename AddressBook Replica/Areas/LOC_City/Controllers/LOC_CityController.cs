@@ -42,7 +42,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
             
-            return View("../Home/Index", dal.LOC_City_SelectAll(connectionString, userID));
+            return View("LOC_CityList", dal.LOC_City_SelectAll(userID));
         }
 
         #endregion
@@ -55,7 +55,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            if (dal.LOC_City_Delete(connectionString, CityID, userID))
+            if (dal.LOC_City_Delete(CityID, userID))
             {
                 TempData["LOC_City_Delete_Msg"] = "City Deleted Successfully.";
             }
@@ -77,7 +77,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
             ViewBag.UserID = userID;
 
-            ViewBag.CountryList = dal.LOC_Country_DropDown(connectionString, userID);
+            ViewBag.CountryList = dal.LOC_Country_DropDown(userID);
 
             ViewBag.StateList = new List<LOC_State_DropDownModel>();
 
@@ -86,13 +86,13 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
             if (CityID != null)
             {
-                LOC_CityModel cityModel = dal.LOC_City_SelectByPk(connectionString, (int)CityID, userID);
+                LOC_CityModel cityModel = dal.LOC_City_SelectByPk((int)CityID, userID);
 
                 LOC_State_DropDownByCountry(cityModel.CountryID);
 
-                return View("../Home/LOC_CityAddEdit", cityModel);
+                return View("LOC_CityAddEdit", cityModel);
             }
-            return View("../Home/LOC_CityAddEdit");
+            return View("LOC_CityAddEdit");
         }
 
         #endregion
@@ -105,7 +105,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
             if (CityModel.CityID == null)
             {
-                if (dal.LOC_City_Insert(connectionString, CityModel))
+                if (dal.LOC_City_Insert(CityModel))
                 {
                     TempData["LOC_City_Insert_Msg"] = "City Inserted Successfully.";
                 }
@@ -116,7 +116,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
             }
             else
             {
-                if (dal.LOC_City_Update(connectionString, CityModel))
+                if (dal.LOC_City_Update(CityModel))
                 {
                     TempData["LOC_City_Update_Msg"] = "City Updated Successfully.";
                 }
@@ -135,10 +135,8 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
         public IActionResult LOC_State_DropDownByCountry(int CountryID)
         {
-            string connectionString = this.configuration.GetConnectionString("Default");
-
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            ViewBag.StateList = dal.LOC_State_DropDown(connectionString, CountryID, userID);
+            ViewBag.StateList = dal.LOC_State_DropDown(CountryID, userID);
 
             var state_model = ViewBag.StateList;
             return Json(state_model);
@@ -164,7 +162,7 @@ namespace AddressBook_Replica.Areas.LOC_City.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            return View("../Home/Index", dal.LOC_City_Search(connectionString, city_SearchModel, userID));
+            return View("LOC_CityList", dal.LOC_City_Search(city_SearchModel, userID));
         }
 
         #endregion

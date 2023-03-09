@@ -32,7 +32,7 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
             string connectionString = this.Configuration.GetConnectionString("Default");
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            return View("../Home/Index", dal.LOC_Country_SelectAll(connectionString, userID));
+            return View("LOC_CountryList", dal.LOC_Country_SelectAll(userID));
         }
 
         #endregion
@@ -44,7 +44,7 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
             string connectionString = this.Configuration.GetConnectionString("Default");
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            if (dal.LOC_Country_Delete(connectionString, CountryID, userID))
+            if (dal.LOC_Country_Delete(CountryID, userID))
             {
                 TempData["LOC_Country_Delete_Msg"] = "Country Deleted Successfully.";
             }
@@ -69,9 +69,9 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
             {
                 string connectionString = this.Configuration.GetConnectionString("Default");
 
-                return View("../Home/LOC_CountryAddEdit", dal.LOC_Country_SelectByPK(connectionString, (int)CountryID, userID));
+                return View("LOC_CountryAddEdit", dal.LOC_Country_SelectByPK((int)CountryID, userID));
             }
-            return View("../Home/LOC_CountryAddEdit");
+            return View("LOC_CountryAddEdit");
         }
 
         #endregion
@@ -85,7 +85,7 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
 
             if (countryModel.CountryID == null)
             {
-                if (dal.LOC_Country_Insert(connectionString, countryModel))
+                if (dal.LOC_Country_Insert(countryModel))
                 {
                     TempData["LOC_Country_Insert_Msg"] = "Country Inserted Successfully.";
                 }
@@ -96,7 +96,7 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
             }
             else
             {
-                if (dal.LOC_Country_Update(connectionString, countryModel))
+                if (dal.LOC_Country_Update(countryModel))
                 {
                     TempData["LOC_Country_Update_Msg"] = "Country Updated Successfully.";
                 }
@@ -127,7 +127,7 @@ namespace AddressBook_Replica.Areas.LOC_Country.Controllers
             ViewBag.CountryName = country_SearchModel.CountryName;
             ViewBag.CountryCode = country_SearchModel.CountryCode;
 
-            return View("../Home/Index", dal.LOC_Country_Search(connectionString, country_SearchModel, userID));
+            return View("LOC_CountryList", dal.LOC_Country_Search(country_SearchModel, userID));
         }
 
         #endregion

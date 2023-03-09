@@ -10,14 +10,14 @@ using System.Data.SqlClient;
 
 namespace AddressBook_Replica.DAL
 {
-    public class LOC_DAL_Base
+    public class LOC_DAL_Base : DALHelper
     {
 
         #region Country
 
         #region Select_All
 
-        public DataTable LOC_Country_SelectAll(string connectionString, int userID)
+        public DataTable LOC_Country_SelectAll(int userID)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_BY_PK
 
-        public LOC_CountryModel LOC_Country_SelectByPK(string connectionString, int CountryID, int userID)
+        public LOC_CountryModel LOC_Country_SelectByPK(int CountryID, int userID)
         {
             try
             {
@@ -85,7 +85,7 @@ namespace AddressBook_Replica.DAL
 
         #region INSERT
 
-        public bool LOC_Country_Insert(string connectionString, LOC_CountryModel countryModel)
+        public bool LOC_Country_Insert(LOC_CountryModel countryModel)
         {
             try
             {
@@ -111,7 +111,7 @@ namespace AddressBook_Replica.DAL
 
         #region DELETE
 
-        public bool LOC_Country_Delete(string connectionString, int CountryID, int userID)
+        public bool LOC_Country_Delete(int CountryID, int userID)
         {
             try
             {
@@ -134,7 +134,7 @@ namespace AddressBook_Replica.DAL
 
         #region UPDATE
 
-        public bool LOC_Country_Update(string connectionString, LOC_CountryModel countryModel)
+        public bool LOC_Country_Update(LOC_CountryModel countryModel)
         {
             try
             {
@@ -160,7 +160,7 @@ namespace AddressBook_Replica.DAL
 
         #region SEARCH
 
-        public DataTable LOC_Country_Search(string connectionString, LOC_Country_SearchModel country_SearchModel, int userID)
+        public DataTable LOC_Country_Search(LOC_Country_SearchModel country_SearchModel, int userID)
         {
             try
             {
@@ -194,7 +194,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_ALL
 
-        public DataTable LOC_State_SelectAll(string connectionString, int userID)
+        public DataTable LOC_State_SelectAll(int userID)
         {
             try
             {
@@ -221,7 +221,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_BY_PK
 
-        public LOC_StateModel LOC_State_SelectByPk(string connectionString, int StateID, int userID)
+        public LOC_StateModel LOC_State_SelectByPk(int StateID, int userID)
         {
             try
             {
@@ -260,7 +260,7 @@ namespace AddressBook_Replica.DAL
 
         #region DELETE
 
-        public bool LOC_State_Delete(string connectionString, int StateID, int userID)
+        public bool LOC_State_Delete(int StateID, int userID)
         {
             try
             {
@@ -283,7 +283,7 @@ namespace AddressBook_Replica.DAL
 
         #region INSERT
 
-        public bool LOC_State_Insert(string connectionString, LOC_StateModel stateModel)
+        public bool LOC_State_Insert(LOC_StateModel stateModel)
         {
             try
             {
@@ -309,7 +309,7 @@ namespace AddressBook_Replica.DAL
 
         #region UPDATE
 
-        public bool LOC_State_Update(string connectionString, LOC_StateModel stateModel)
+        public bool LOC_State_Update(LOC_StateModel stateModel)
         {
             try
             {
@@ -335,7 +335,7 @@ namespace AddressBook_Replica.DAL
 
         #region SEARCH
 
-        public DataTable LOC_State_Search(string connectionString, LOC_State_SearchModel state_SearchModel, int userID)
+        public DataTable LOC_State_Search(LOC_State_SearchModel state_SearchModel, int userID)
         {
             try
             {
@@ -369,7 +369,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_ALL
 
-        public DataTable LOC_City_SelectAll(string connectionString, int userID)
+        public DataTable LOC_City_SelectAll(int userID)
         {
             try
             {
@@ -396,7 +396,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_BY_PK
 
-        public LOC_CityModel LOC_City_SelectByPk(string connectionString, int CityID, int userID)
+        public LOC_CityModel LOC_City_SelectByPk(int CityID, int userID)
         {
             try
             {
@@ -436,7 +436,7 @@ namespace AddressBook_Replica.DAL
 
         #region DELETE
 
-        public bool LOC_City_Delete(string connectionString, int CityID, int userID)
+        public bool LOC_City_Delete(int CityID, int userID)
         {
             try
             {
@@ -459,7 +459,7 @@ namespace AddressBook_Replica.DAL
 
         #region INSERT
 
-        public bool LOC_City_Insert(string connectionString, LOC_CityModel CityModel)
+        public bool LOC_City_Insert(LOC_CityModel CityModel)
         {
             try
             {
@@ -486,7 +486,7 @@ namespace AddressBook_Replica.DAL
 
         #region UPDATE
 
-        public bool LOC_City_Update(string connectionString, LOC_CityModel CityModel)
+        public bool LOC_City_Update(LOC_CityModel CityModel)
         {
             try
             {
@@ -513,7 +513,7 @@ namespace AddressBook_Replica.DAL
 
         #region SEARCH
 
-        public DataTable LOC_City_Search(string connectionString, LOC_City_SearchModel city_SearchModel, int userID)
+        public DataTable LOC_City_Search(LOC_City_SearchModel city_SearchModel, int userID)
         {
             try
             {

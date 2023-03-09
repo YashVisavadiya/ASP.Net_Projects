@@ -12,7 +12,7 @@ namespace AddressBook_Replica.DAL
     {
         #region CONTACTCATEGORY_DROPDOWN
 
-        public List<CON_ContactCategory_DropDownModel> CON_ContactCategory_DropDown(string connectionString, int userID)
+        public List<CON_ContactCategory_DropDownModel> CON_ContactCategory_DropDown(int userID)
         {
             try
             {

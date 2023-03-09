@@ -34,7 +34,7 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            return View("../Home/Index", dal.CON_ContactCategory_SelectAll(connectionString, userID));
+            return View("CON_ContactCategoryList", dal.CON_ContactCategory_SelectAll(userID));
         }
 
         #endregion
@@ -46,7 +46,7 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
             string connectionString = this.Configuration.GetConnectionString("Default");
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            if (dal.CON_ContactCategory_Delete(connectionString, ContactCategoryID, userID))
+            if (dal.CON_ContactCategory_Delete(ContactCategoryID, userID))
             {
                 TempData["CON_ContactCategory_Delete_Msg"] = "Contact Category Deleted Successfully.";
             }
@@ -71,9 +71,9 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
 
             if (contactCategoryID != null)
             {
-                return View("../Home/CON_ContactCategoryAddEdit", dal.CON_ContactCategory_SelectByPK(connectionString, (int)contactCategoryID, userID));
+                return View("CON_ContactCategoryAddEdit", dal.CON_ContactCategory_SelectByPK((int)contactCategoryID, userID));
             }
-            return View("../Home/CON_ContactCategoryAddEdit");
+            return View("CON_ContactCategoryAddEdit");
         }
 
         #endregion
@@ -86,7 +86,7 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
 
             if (contactCategoryModel.ContactCategoryID == null)
             {
-                if (dal.CON_ContactCategory_Insert(connectionString, contactCategoryModel))
+                if (dal.CON_ContactCategory_Insert(contactCategoryModel))
                 {
                     TempData["CON_ContactCategory_Insert_Msg"] = "Contact Category Inserted Successfully.";
                 }
@@ -97,7 +97,7 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
             }
             else
             {
-                if (dal.CON_ContactCategory_Update(connectionString, contactCategoryModel))
+                if (dal.CON_ContactCategory_Update(contactCategoryModel))
                 {
                     TempData["CON_ContactCategory_Update_Msg"] = "Contact Category Updated Successfully.";
                 }
@@ -124,7 +124,7 @@ namespace AddressBook_Replica.Areas.CON_ContactCategory.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            return View("../Home/Index", dal.CON_ContactCategory_Search(connectionString, contactCategory_SearchModel, userID));
+            return View("CON_ContactCategoryList", dal.CON_ContactCategory_Search(contactCategory_SearchModel, userID));
         }
 
         #endregion

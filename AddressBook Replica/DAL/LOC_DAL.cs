@@ -12,7 +12,7 @@ namespace AddressBook_Replica.DAL
     {
         #region COUNTRY_DROPDOWN
 
-        public List<LOC_Country_DropDownModel> LOC_Country_DropDown(string connectionString, int userID)
+        public List<LOC_Country_DropDownModel> LOC_Country_DropDown(int userID)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace AddressBook_Replica.DAL
 
         #region STATE_DROPDOWN
 
-        public List<LOC_State_DropDownModel> LOC_State_DropDown(string connectionString, int CountryID, int userID)
+        public List<LOC_State_DropDownModel> LOC_State_DropDown(int CountryID, int userID)
         {
             try
             {
@@ -93,7 +93,7 @@ namespace AddressBook_Replica.DAL
 
         #region CITY_DROPDOWN
 
-        public List<LOC_City_DropDownModel> LOC_City_DropDown(string connectionString, int StateID, int userID)
+        public List<LOC_City_DropDownModel> LOC_City_DropDown(int StateID, int userID)
         {
             try
             {

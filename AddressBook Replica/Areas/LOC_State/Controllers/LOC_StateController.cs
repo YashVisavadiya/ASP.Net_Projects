@@ -35,7 +35,7 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            return View("../Home/Index", dal.LOC_State_SelectAll(connectionString, userID));
+            return View("LOC_StateList", dal.LOC_State_SelectAll(userID));
         }
 
         #endregion
@@ -47,7 +47,7 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
             string connectionString = this.Configuration.GetConnectionString("Default");
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            if (dal.LOC_State_Delete(connectionString, StateID, userID))
+            if (dal.LOC_State_Delete(StateID, userID))
             {
                 TempData["LOC_State_Delete_Msg"] = "State Deleted Successfully.";
             }
@@ -68,14 +68,14 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
         
-            ViewBag.CountryList = dal.LOC_Country_DropDown(connectionString, userID);
+            ViewBag.CountryList = dal.LOC_Country_DropDown(userID);
             ViewBag.UserID = userID;
 
             if (StateID != null)
             {
-                return View("../Home/LOC_StateAddEdit", dal.LOC_State_SelectByPk(connectionString, (int)StateID, userID));
+                return View("LOC_StateAddEdit", dal.LOC_State_SelectByPk((int)StateID, userID));
             }
-            return View("../Home/LOC_StateAddEdit");
+            return View("LOC_StateAddEdit");
         }
 
         #endregion
@@ -88,7 +88,7 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
 
             if (stateModel.StateID == null)
             {
-                if (dal.LOC_State_Insert(connectionString, stateModel))
+                if (dal.LOC_State_Insert(stateModel))
                 {
                     TempData["LOC_State_Insert_Msg"] = "State Inserted Successfully.";
                 }
@@ -99,7 +99,7 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
             }
             else
             {
-                if (dal.LOC_State_Update(connectionString, stateModel))
+                if (dal.LOC_State_Update(stateModel))
                 {
                     TempData["LOC_State_Update_Msg"] = "State Updated Successfully.";
                 }
@@ -130,7 +130,7 @@ namespace AddressBook_Replica.Areas.LOC_State.Controllers
             ViewBag.CountryName = state_SearchModel.CountryName;
             ViewBag.StateName = state_SearchModel.StateName;
 
-            return View("../Home/Index", dal.LOC_State_Search(connectionString, state_SearchModel, userID));
+            return View("LOC_StateList", dal.LOC_State_Search(state_SearchModel, userID));
         }
 
         #endregion

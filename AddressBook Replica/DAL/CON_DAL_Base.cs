@@ -6,13 +6,13 @@ using AddressBook_Replica.Areas.CON_Contact.Models;
 
 namespace AddressBook_Replica.DAL
 {
-    public class CON_DAL_Base
+    public class CON_DAL_Base : DALHelper
     {
         #region ContactCategory
 
         #region Select_All
 
-        public DataTable? CON_ContactCategory_SelectAll(string connectionString, int userID)
+        public DataTable? CON_ContactCategory_SelectAll(int userID)
         {
             try
             {
@@ -40,7 +40,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_BY_PK
 
-        public CON_ContactCategoryModel CON_ContactCategory_SelectByPK(string connectionString, int ContactCategoryID, int userID)
+        public CON_ContactCategoryModel CON_ContactCategory_SelectByPK(int ContactCategoryID, int userID)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace AddressBook_Replica.DAL
 
         #region INSERT
 
-        public bool CON_ContactCategory_Insert(string connectionString, CON_ContactCategoryModel contactCategoryModel)
+        public bool CON_ContactCategory_Insert(CON_ContactCategoryModel contactCategoryModel)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace AddressBook_Replica.DAL
 
         #region DELETE
 
-        public bool CON_ContactCategory_Delete(string connectionString, int ContactCategoryID, int userID)
+        public bool CON_ContactCategory_Delete(int ContactCategoryID, int userID)
         {
             try
             {
@@ -126,7 +126,7 @@ namespace AddressBook_Replica.DAL
 
         #region UPDATE
 
-        public bool CON_ContactCategory_Update(string connectionString, CON_ContactCategoryModel contactCategoryModel)
+        public bool CON_ContactCategory_Update(CON_ContactCategoryModel contactCategoryModel)
         {
             try
             {
@@ -151,7 +151,7 @@ namespace AddressBook_Replica.DAL
 
         #region SEARCH
 
-        public DataTable? CON_ContactCategory_Search(string connectionString, CON_ContactCategory_SearchModel contactCategory_SearchModel, int userID)
+        public DataTable? CON_ContactCategory_Search(CON_ContactCategory_SearchModel contactCategory_SearchModel, int userID)
         {
             try
             {
@@ -184,7 +184,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_ALL
 
-        public DataTable? CON_Contact_SelectAll(string connectionString, int userID)
+        public DataTable? CON_Contact_SelectAll(int userID)
         {
             try
             {
@@ -211,7 +211,7 @@ namespace AddressBook_Replica.DAL
 
         #region SELECT_BY_PK
 
-        public CON_ContactModel CON_Contact_SelectByPk(string connectionString, int ContactID, int userID)
+        public CON_ContactModel CON_Contact_SelectByPk(int ContactID, int userID)
         {
             try
             {
@@ -258,7 +258,7 @@ namespace AddressBook_Replica.DAL
 
         #region DELETE
 
-        public bool CON_Contact_Delete(string connectionString, int ContactID, int userID)
+        public bool CON_Contact_Delete(int ContactID, int userID)
         {
             try
             {
@@ -308,7 +308,7 @@ namespace AddressBook_Replica.DAL
 
         #region INSERT
 
-        public bool CON_Contact_Insert(string connectionString, CON_ContactModel contactModel)
+        public bool CON_Contact_Insert(CON_ContactModel contactModel)
         {
             try
             {
@@ -366,7 +366,7 @@ namespace AddressBook_Replica.DAL
 
         #region UPDATE
 
-        public bool CON_Contact_Update(string connectionString, CON_ContactModel contactModel, string delete_file_name)
+        public bool CON_Contact_Update(CON_ContactModel contactModel, string delete_file_name)
         {
             try
             {
@@ -430,7 +430,7 @@ namespace AddressBook_Replica.DAL
 
         #region SEARCH
 
-        public DataTable? CON_Contact_Search(string connectionString, CON_Contact_SearchModel contact_SearchModel, int userID)
+        public DataTable? CON_Contact_Search(CON_Contact_SearchModel contact_SearchModel, int userID)
         {
             try
             {

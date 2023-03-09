@@ -42,7 +42,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
             string connectionString = this.Configuration.GetConnectionString("Default");
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            return View("../Home/Index", dal.CON_Contact_SelectAll(connectionString, userID));
+            return View("CON_ContactList", dal.CON_Contact_SelectAll(userID));
         }
 
         #endregion
@@ -55,7 +55,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
-            if (dal.CON_Contact_Delete(connectionString, ContactID, userID))
+            if (dal.CON_Contact_Delete(ContactID, userID))
             {
                 TempData["CON_Contact_Delete_Msg"] = "Contact Deleted Successfully.";
             }
@@ -79,28 +79,28 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
             ViewBag.UserID = userID;
 
             LOC_DAL locDAL = new LOC_DAL(); 
-            ViewBag.CountryList = locDAL.LOC_Country_DropDown(connectionString, userID);
+            ViewBag.CountryList = locDAL.LOC_Country_DropDown(userID);
 
             ViewBag.StateList = new List<LOC_State_DropDownModel>();
 
             ViewBag.CityList = new List<LOC_City_DropDownModel>();
 
-            ViewBag.ContactCategoryList = dal.CON_ContactCategory_DropDown(connectionString, userID);
+            ViewBag.ContactCategoryList = dal.CON_ContactCategory_DropDown(userID);
 
             // Fetch Tuple
 
             if (ContactID != null)
             {
-                CON_ContactModel contactModel = dal.CON_Contact_SelectByPk(connectionString, (int)ContactID, userID);
+                CON_ContactModel contactModel = dal.CON_Contact_SelectByPk((int)ContactID, userID);
                 file_name = contactModel.PhotoPath.ToString();
 
                 LOC_State_DropDownByCountry(contactModel.CountryID);
 
                 LOC_City_DropDownByState(contactModel.StateID);
 
-                return View("../Home/CON_ContactAddEdit", contactModel);
+                return View("CON_ContactAddEdit", contactModel);
             }
-            return View("../Home/CON_ContactAddEdit");
+            return View("CON_ContactAddEdit");
         }
 
         #endregion
@@ -113,7 +113,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
 
             if (contactModel.ContactID == null)
             {
-                if (dal.CON_Contact_Insert(connectionString, contactModel))
+                if (dal.CON_Contact_Insert(contactModel))
                 {
                     TempData["CON_Contact_Insert_Msg"] = "Contact Inserted Successfully.";
                 }
@@ -124,7 +124,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
             }
             else
             {
-                if (dal.CON_Contact_Update(connectionString, contactModel, file_name))
+                if (dal.CON_Contact_Update(contactModel, file_name))
                 {
                     TempData["CON_Contact_Update_Msg"] = "Contact Updated Successfully.";
                 }
@@ -143,11 +143,9 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
 
         public IActionResult LOC_State_DropDownByCountry(int CountryID)
         {
-            string connectionString = this.Configuration.GetConnectionString("Default");
-
             LOC_DAL locDAL = new LOC_DAL();
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            ViewBag.StateList = locDAL.LOC_State_DropDown(connectionString, CountryID, userID);
+            ViewBag.StateList = locDAL.LOC_State_DropDown(CountryID, userID);
 
             var state_model = ViewBag.StateList;
             return Json(state_model);
@@ -165,7 +163,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
 
             LOC_DAL locDAL = new LOC_DAL();
-            ViewBag.CityList = locDAL.LOC_City_DropDown(connectionString, StateID, userID);
+            ViewBag.CityList = locDAL.LOC_City_DropDown(StateID, userID);
 
             var city_model = ViewBag.CityList;
             return Json(city_model);
@@ -197,7 +195,7 @@ namespace AddressBook_Replica.Areas.CON_Contact.Controllers
             ViewBag.ContactCategory = contact_SearchModel.Category;
 
             int userID = Convert.ToInt32(HttpContext.Session.GetString("UserID"));
-            return View("../Home/Index", dal.CON_Contact_Search(connectionString, contact_SearchModel, userID));
+            return View("CON_ContactList", dal.CON_Contact_Search(contact_SearchModel, userID));
         }
 
         #endregion
